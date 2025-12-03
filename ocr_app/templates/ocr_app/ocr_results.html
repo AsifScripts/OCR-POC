@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OCR Results</title>
+</head>
+<body>
+    <h1>OCR Results</h1>
+    {% for pdf, pages in results.items %}
+        <h2>{{ pdf }}</h2>
+        {% for page in pages %}
+            <div style="border:1px solid #ccc; margin-bottom:20px; padding:10px;">
+                <h3>Page {{ forloop.counter }}</h3>
+                {% for engine, text in page.items %}
+                    <h4>{{ engine }}</h4>
+                    <pre>{{ text }}</pre>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>
